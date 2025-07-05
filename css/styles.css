@@ -1,0 +1,669 @@
+/* Basic Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Dark theme */
+    color: #e0e0e0; /* Light text for contrast */
+    line-height: 1.6;
+}
+
+/* Navbar Styling */
+header {
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.7), rgba(0, 140, 158, 0.7)); /* Transparent gradient */
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px); /* Adds blur effect to the background */
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: center; /* Aligning navbar in the center */
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Menu Navigasi */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 30px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effect - Elegan Hover Animation */
+.nav-links a:hover {
+    color: #00bcd4;
+    transform: scale(1.1); /* Slight zoom effect */
+    background-color: rgba(0, 188, 212, 0.2); /* Subtle background color on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Fullscreen Overlay Menu */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0s 0.5s; /* Fade-in/out effect */
+    backdrop-filter: blur(10px); /* Background blur */
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-in-out, visibility 0s 0s; /* Smooth fade-in effect */
+}
+
+.overlay-menu {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.overlay-menu li {
+    margin: 20px 0;
+}
+
+.overlay-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.overlay-menu a:hover {
+    color: #00bcd4;
+}
+
+/* Animasi Fade-in untuk Menu Items */
+.overlay.active .overlay-menu {
+    opacity: 1;
+    transform: translateY(0); /* Menu fades in from below */
+    transition-delay: 0.2s; /* Delay for smooth transition */
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+    /* Menyembunyikan menu navigasi pada layar kecil */
+    .nav-links {
+        display: none;
+    }
+
+    /* Menampilkan hamburger di mobile */
+    .hamburger {
+        display: flex; /* Menampilkan hamburger di mobile */
+    }
+}
+
+
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.hero {
+    background: url('https://via.placeholder.com/1500') no-repeat center center/cover; /* Add a background image */
+    color: #fff;
+    padding: 150px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+h2 {
+    font-size: 36px;
+    color: #00bcd4;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.Logo_jxn {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.content p {
+    font-size: 18px;
+    color: #bbb;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Styling untuk konten About Me */
+#about {
+    padding: 80px 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center; /* Membuat konten berada di tengah */
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: center; /* Menjaga elemen terpusat secara vertikal */
+}
+
+/* Bagian Kiri (Foto Profil & Media Sosial) */
+.about-left {
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Menjaga foto dan sosial media di tengah */
+    justify-content: center;
+    text-align: center;
+}
+
+.about-left img {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    font-size: 20px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #00bcd4;
+}
+
+/* Bagian Kanan (About Me dan Skill Section) */
+.about-right {
+    flex: 2;
+    max-width: 700px;
+    text-align: center; /* Membuat teks About Me dan skill terpusat */
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #00bcd4;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.about-text p {
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Skill Section */
+.skills {
+    margin-top: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #00bcd4;
+}
+
+.skill-bar {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.skill-bar span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #fff;
+}
+.icon_skill {
+    display: flex;
+    align-items: center;
+
+
+}
+
+.progress-bar {
+    width: 0%;
+    height: 10px;
+    background-color: #e1e1e1;
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+}
+
+/* -------------------- Responsif -------------------- */
+
+/* Untuk Tablet */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-left {
+        max-width: 200px;
+    }
+
+    .about-right {
+        max-width: 90%;
+    }
+
+    .about-text h2 {
+        font-size: 28px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .skills h3 {
+        font-size: 24px;
+    }
+
+    .skill-bar span {
+        font-size: 16px;
+    }
+
+    .social-icon {
+        font-size: 18px;
+    }
+}
+
+/* Untuk Mobile */
+@media (max-width: 480px) {
+    .about-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-left {
+        max-width: 150px;
+        margin-bottom: 15px;
+    }
+
+    .about-right {
+        max-width: 90%;
+    }
+
+    .about-text h2 {
+        font-size: 24px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+    }
+
+    .skills h3 {
+        font-size: 20px;
+    }
+
+    .skill-bar span {
+        font-size: 14px;
+    }
+
+    .social-icon {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+/** bagian portfolio **/
+
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+    transition: all 0.3s ease;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #1a1a1a;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.portfolio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-img img {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 15px;
+    text-align: center;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.portfolio-overlay p {
+    font-size: 16px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* -------------------- Responsif -------------------- */
+
+/* Untuk Tablet */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-overlay h3 {
+        font-size: 20px;
+    }
+
+    .portfolio-overlay p {
+        font-size: 14px;
+    }
+}
+
+/* Untuk Mobile */
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-overlay h3 {
+        font-size: 18px;
+    }
+
+    .portfolio-overlay p {
+        font-size: 12px;
+    }
+}
+
+
+form {
+    margin-top: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #222;
+    color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #00bcd4;
+    outline: none;
+}
+
+form button {
+    padding: 12px 25px;
+    background: #00bcd4;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #008c9e;
+}
+
+footer {
+    background: #333;
+    text-align: center;
+    padding: 30px 20px;
+    color: #bbb;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* -------------------- Responsif -------------------- */
+
+/* Untuk Tablet */
+@media (max-width: 768px) {
+    header nav ul li {
+        margin-bottom: 15px;
+    }
+
+    header nav ul {
+        display: block;
+        padding: 0;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-item h3 {
+        font-size: 20px;
+    }
+
+    form label {
+        font-size: 16px;
+    }
+
+    form input, form textarea {
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 16px;
+    }
+}
+
+/* Untuk Mobile */
+@media (max-width: 480px) {
+    header nav ul li {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    header nav ul {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-item h3 {
+        font-size: 16px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    form label {
+        font-size: 14px;
+    }
+
+    form input, form textarea {
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 14px;
+    }
+}
+
+
+/* nav style */
+
